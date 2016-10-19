@@ -713,4 +713,6 @@ include/diff_tables.inc [master:t1, slave:t1]
 connection master;
 drop table t1;
 connection slave;
+connection slave;
+call mtr.add_suppression("Can't find record in 't1'");
 include/rpl_end.inc

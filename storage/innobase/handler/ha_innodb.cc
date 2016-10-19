@@ -22726,7 +22726,7 @@ static MYSQL_SYSVAR_BOOL(log_compressed_pages, page_zip_log_pages,
   " the zlib compression algorithm changes."
   " When turned OFF, InnoDB will assume that the zlib"
   " compression algorithm doesn't change.",
-  NULL, NULL, FALSE);
+  NULL, NULL, TRUE);
 
 static MYSQL_SYSVAR_ULONG(autoextend_increment,
   sys_tablespace_auto_extend_increment,
@@ -23154,7 +23154,7 @@ static MYSQL_SYSVAR_LONG(autoinc_lock_mode, innobase_autoinc_lock_mode,
   " 1 => New style AUTOINC locking;"
   " 2 => No AUTOINC locking (unsafe for SBR)",
   NULL, NULL,
-  AUTOINC_NEW_STYLE_LOCKING,	/* Default setting */
+  AUTOINC_NO_LOCKING,		/* Default setting */
   AUTOINC_OLD_STYLE_LOCKING,	/* Minimum value */
   AUTOINC_NO_LOCKING, 0);	/* Maximum value */
 

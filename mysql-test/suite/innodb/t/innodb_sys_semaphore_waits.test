@@ -111,4 +111,6 @@ set DEBUG_DBUG=NULL;
 drop table if exists t1;
 --enable_warnings
 
+call mtr.add_suppression("Table 'test_suppressions' is marked as crashed and should be repaired");
+
 --echo # Clean exit

@@ -5,6 +5,7 @@
 # new slave option   : --replicate-annotate-row-events
 ########################################################################
 --source include/master-slave.inc
+
 connect (master2,127.0.0.1,root,,test,$MASTER_MYPORT,);
 
 connection master;
@@ -181,5 +182,9 @@ connection master;
 DROP DATABASE test1;
 sync_slave_with_master;
 --enable_query_log
+
+use test;
+connection slave;
+call mtr.add_suppression("Can't find record in 't3'");
 
 --source include/rpl_end.inc
